@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
-import fetchData from "./fetchApi";
+import { createSlice } from '@reduxjs/toolkit';
+import fetchData from './fetchApi';
 
 const initialState = {
   data: '',
   isSuccess: false,
   message: '',
-  loading: false
+  loading: false,
 };
 
 const randomMessage = createSlice({
@@ -18,13 +18,13 @@ const randomMessage = createSlice({
       })
       .addCase(fetchData.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload
+        state.data = action.payload;
       })
       .addCase(fetchData.rejected, (state, action) => {
         state.message = action.payload;
         state.loading = false;
-      })
-  }
+      });
+  },
 });
 
 export default randomMessage.reducer;
