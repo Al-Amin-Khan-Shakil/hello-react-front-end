@@ -9,11 +9,9 @@ const RandomMessage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Ensure data is available before updating the local state
     if (state.data && state.data.message) {
       setMsg(state.data.message);
     } else {
-      // If data is not available, dispatch the fetchData action
       dispatch(fetchData());
     }
   }, [dispatch, state.data]);
